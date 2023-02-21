@@ -1,0 +1,27 @@
+{
+  "name": "ebpf-assembly",
+  "displayName": "eBPF Assembly",
+  "description": "Syntax highlighting for eBPF assembly",
+  "version": "0.0.1",
+  "repository": {"url": "https://github.com/nickolaev/vscode-ebpf-assembly"},
+  "publisher": "nicknickolaev",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "ebpf",
+      "aliases": ["eBFP assembly", "eBPF assembly"],
+      "extensions": [".S"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "ebpf",
+      "scopeName": "source.ebpf",
+      "path": "./syntaxes/eBPF assembly.tmLanguage.json"
+    }]
+  }
+}
