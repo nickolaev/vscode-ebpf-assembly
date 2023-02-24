@@ -4,47 +4,17 @@
 	"patterns": [
 		{
 			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "comment.line.ebpf",
-				"match": "(\\d+)(:)(\\s+)(\\(\\h{2}\\))"
+			"patterns": [
+			{
+				"name": "comment.line.double-dash",
+				"match": "^;.*$"
 			},
 			{
-				"name": "comment.line.ext.ebpf",
-				"match": "(\\d+)(:)(\\s+)((?:\\h{2} ){8})"
-			},
-			{
-				"name": "comment.line.short.ebpf",
-				"match": "(\\d+)(:)(\\s+)"
-			},
-			{
-				"name": "keyword.control.call.ebpf",
-				"match": "(call)(\\s+)(\\d+)"
-			},
-			{
-				"name": "keyword.control.call.ext.ebpf",
-				"match": "(call)(\\s+)(\\w+)(#)(\\d+)"
-			},
-			{
-				"name": "keyword.control.jump.ebpf",
-				"match": "(goto)(\\s*)(\\+\\d+)?(\\s*)(<?\\w+>?)"
-			},
-			{
-				"name": "keyword.control.if.jump.ebpf",
-				"match": "(if)(\\s+)([rw]\\d+)(\\s*)([s!=<>]+)(\\s*)(0x\\h+|[-]?\\d+)(\\s*)(goto)(\\s*)(\\+\\d+)?(\\s*)(<?\\w+>?)"
-			},
-			{
-				"name": "keyword.control.if.jump.short.ebpf",
-				"match": "(if)(\\s+)([rw]\\d+)(\\s*)([s!=<>]+)(\\s*)([rw]\\d+)(\\s*)(goto)(\\s*)(\\+\\d+)?(\\s*)(<?\\w+>?)"
-			},
-			{
-				"name": "storage.dereference.ebpf",
+				"name": "storage.type",
 				"match": "(\\*)(\\s*)(\\()(u8|u16|u32|u64|ll)(\\s*)(\\*)(\\))"
 			},
 			{
@@ -52,37 +22,32 @@
 				"match": "[+-\/\\*&|><^s]{0,3}="
 			},
 			{
-				"name": "keyword.register.ebpf",
+				"name": "variable.ebpf",
 				"match": "([+-]?)([rw]\\d+)"
 			},
 			{
 				"name": "keyword.ebpf",
-				"match": "\\b(be16|be32|be64|exit|lock|map)\\b"
+				"match": "\\b(be16|be32|be64|exit|lock|call|if|goto)\\b"
+			},
+			{
+				"name": "meta.tag.ebpf",
+				"match": "<LBB\\d+_\\d+>"
+			},
+			{
+				"name": "meta.preprocessor.numeric",
+				"match": "^\\s+\\d+:",
+				"comment": "The line number"
+			},
+			{
+				"name": "meta.preprocessor.string",
+				"match": "^\\h{16}",
+				"comment": "The hex address of the label"
 			},
 			{
 				"name": "constant.numeric.ebpf",
-				"match": "(0x\\h+|[-]?\\d+)(\\s*)(ll)?"
-			},
-			{
-				"name": "variable.globale.ebpf",
-				"match": "(\\w+)(\\s*)(ll)"
-			},
-			{
-				"name": "string.label.ebpf",
-				"match": "(\\w+)(\\s*)(:)"
+				"match": "\\b(0x\\h+|[-]?\\d+)(\\s*)(ll)?\\b"
 			}
 		]
-		},
-		"strings": {
-			"name": "string.quoted.double.ebpf",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.ebpf",
-					"match": "\\\\."
-				}
-			]
 		}
 	},
 	"scopeName": "source.ebpf"
