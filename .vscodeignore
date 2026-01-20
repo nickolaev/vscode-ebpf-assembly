@@ -1,0 +1,9 @@
+.git/
+.github/
+.vscode/
+.vscode-test/
+node_modules/
+*.log
+AGENTS.md
+.gitattributes
+.gitignore
