@@ -3,5 +3,8 @@
     "brackets": [
         ["[", "]"],
         ["(", ")"]
-    ]
+    ],
+    "comments": {
+        "lineComment": ";"
+    }
 }
