@@ -4,6 +4,7 @@
   "description": "Syntax highlighting for eBPF assembly",
   "version": "0.0.2",
   "repository": {"url": "https://github.com/nickolaev/vscode-ebpf-assembly"},
+  "license": "Apache-2.0",
   "publisher": "nicknickolaev",
   "engines": {
     "vscode": "^1.75.0"
@@ -14,7 +15,7 @@
   "contributes": {
     "languages": [{
       "id": "ebpf",
-      "aliases": ["eBFP assembly", "eBPF assembly"],
+      "aliases": ["eBPF assembly", "eBPF disassembly"],
       "extensions": [".S"],
       "configuration": "./language-configuration.json"
     }],
