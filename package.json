@@ -2,7 +2,7 @@
   "name": "ebpf-assembly",
   "displayName": "eBPF Assembly",
   "description": "Syntax highlighting for eBPF assembly",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "repository": {"url": "https://github.com/nickolaev/vscode-ebpf-assembly"},
   "license": "Apache-2.0",
   "publisher": "nicknickolaev",
