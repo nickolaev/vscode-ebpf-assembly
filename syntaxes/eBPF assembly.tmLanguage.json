@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "eBFP assembly",
+	"name": "eBPF assembly",
 	"patterns": [
 		{
 			"include": "#keywords"
@@ -9,45 +9,45 @@
 	"repository": {
 		"keywords": {
 			"patterns": [
-			{
-				"name": "comment.line.double-dash",
-				"match": "^;.*$"
-			},
-			{
-				"name": "storage.type",
-				"match": "(\\*)(\\s*)(\\()(u8|u16|u32|u64|ll)(\\s*)(\\*)(\\))"
-			},
-			{
-				"name": "keyword.operator.ebpf",
-				"match": "[+-\/\\*&|><^s]{0,3}="
-			},
-			{
-				"name": "variable.ebpf",
-				"match": "([+-]?)([rw]\\d+)"
-			},
-			{
-				"name": "keyword.ebpf",
-				"match": "\\b(be16|be32|be64|exit|lock|call|if|goto)\\b"
-			},
-			{
-				"name": "meta.tag.ebpf",
-				"match": "<LBB\\d+_\\d+>"
-			},
-			{
-				"name": "meta.preprocessor.numeric",
-				"match": "^\\s+\\d+:",
-				"comment": "The line number"
-			},
-			{
-				"name": "meta.preprocessor.string",
-				"match": "^\\h{16}",
-				"comment": "The hex address of the label"
-			},
-			{
-				"name": "constant.numeric.ebpf",
-				"match": "\\b(0x\\h+|[-]?\\d+)(\\s*)(ll)?\\b"
-			}
-		]
+				{
+					"name": "comment.line.semicolon.ebpf",
+					"match": ";.*$"
+				},
+				{
+					"name": "storage.type",
+					"match": "(\\*)(\\s*)(\\()(u8|u16|u32|u64|u128|ll)(\\s*)(\\*)(\\))"
+				},
+				{
+					"name": "keyword.operator.ebpf",
+					"match": "(?:<<=|>>=|==|!=|<=|>=|<<|>>|[-+*/%&|^]=|[-+*/%&|^]|=|<|>)"
+				},
+				{
+					"name": "variable.ebpf",
+					"match": "([+-]?)(?:[rw]\\d+|fp)"
+				},
+				{
+					"name": "keyword.ebpf",
+					"match": "\\b(add|sub|mul|div|or|and|lsh|rsh|arsh|neg|mod|xor|mov|ja|jeq|jgt|jge|jset|jne|jsgt|jsge|call|exit|ld|ldx|st|stx|lddw|xadd|atomic|be16|be32|be64|le16|le32|le64|lock|if|goto)\\b"
+				},
+				{
+					"name": "meta.tag.ebpf",
+					"match": "<[A-Za-z_.$][A-Za-z0-9_.$]*>"
+				},
+				{
+					"name": "meta.preprocessor.numeric",
+					"match": "^\\s*\\d+:",
+					"comment": "The line number"
+				},
+				{
+					"name": "meta.preprocessor.string",
+					"match": "^\\s*[0-9a-fA-F]{8,16}(?=:)",
+					"comment": "The hex address of the label"
+				},
+				{
+					"name": "constant.numeric.ebpf",
+					"match": "\\b-?(?:0x[0-9A-Fa-f]+|\\d+)(?:\\s*ll)?\\b"
+				}
+			]
 		}
 	},
 	"scopeName": "source.ebpf"
